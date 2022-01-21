@@ -142,5 +142,8 @@ end
 Vehicle.loadCollection
 Starship.loadCollection
 Person.loadCollection
+Person.all.each { |person| puts person.name }
+Vehicle.all.each { |vehicle| puts vehicle.name }
+Starship.all.each { |starship| puts starship.name }
 p = Person.find(1)
-p.starships.each {|id, starship| puts starship.name}
+p.starships.each {|id, starship| puts "#{p.name} owns #{starship.name}"}
