@@ -11,21 +11,26 @@ require 'json'
 # https://github.com/ruby/debug
 
 class JsonReader
+  #Aparentemente las variables de clase no son realmente de clase.. que sorpresa.
+  #Sino que tambien es compartida entre esta clase, sus hijos y cualquiera en la jerarquia
+  #Por ende lo hice un hash con keys con los nombres de cada clase, aunque seria mucho mas simple usar 3 variables globales
   @@collection ||= Hash.new 
   
   def self.collection
     @@collection
   end
 
-  def self.loadCollection(what)
+  # json_name contiene people, vehicles o starships para leer la seccion correspondiente del JSON
+  # Usa polimorfismo y alguna que otra mala practica para al hash collection asignar un arreglo con los items que procesa
+  def self.loadCollection(json_name)
     @@collection[self.to_s.downcase] ||= Array.new
     file = File.read("swapi.json")
     data_hash = JSON.parse(file)
-    data_hash[what].each { |item| @@collection[self.to_s.downcase].append(self.new(item))}
+    data_hash[json_name].each { |item| @@collection[self.to_s.downcase].append(self.new(item))}
   end
 
   def self.all
-    @@collection
+    @@collection[self.to_s.downcase]
   end
 
   def self.find(id)
