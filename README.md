@@ -21,3 +21,12 @@ person.name # => Luke Skywalker
 person.height # => 172
 person.vehicles # => [<Vehicle>, <Vehicle>]
 ```
+
+# Práctica 2
+
+1. Crear una Gema que contenga las Clases y Modulos de la Práctica anterior.
+2. Crear un API con Sinatra (http://sinatrarb.com/):
+  - Debe tener a endpoint /people/:id, me devuelva un personaje con todo la info relacionada.
+  - Debe ser un projecto con su propio Gemfile
+  - Debe tener como dependencia unicamente Sinatra y nuestra gema wrapper
+
