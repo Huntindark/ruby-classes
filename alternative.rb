@@ -47,6 +47,7 @@ class Person < JsonReader
     @starships = {}
     params.fetch('vehicles').each { |vehicle_id| @vehicles[vehicle_id] = '' }
     params.fetch('starships').each { |starship_id| @starships[starship_id] = '' }
+    $people.append(self)
   end
 
   def self.loadCollection
@@ -56,7 +57,7 @@ class Person < JsonReader
   end
 
   def self.iterateHash(hash)
-    hash['people'].each { |person| $people.append(new(person))}
+    hash['people'].each { |person| new(person)}
   end
 
   def self.find(id)
@@ -87,10 +88,11 @@ class Vehicle < JsonReader
     @cargo_capacity = params.fetch('cargo_capacity')
     @consumables = params.fetch('consumables')
     @vehicle_class = params.fetch('vehicle_class')
+    $vehicles.append(self)
   end
 
   def self.iterateHash(hash)
-    hash['vehicles'].each { |vehicle| $vehicles.append(new(vehicle))}
+    hash['vehicles'].each { |vehicle| new(vehicle)}
   end
 
   def self.find(id)
@@ -121,10 +123,11 @@ class Starship < JsonReader
     @vehicle_class = params.fetch('hyperdrive_rating')
     @MLGT = params.fetch('MGLT')
     @starship_class = params.fetch('starship_class')
+    $starships.append(self)
   end
 
   def self.iterateHash(hash)
-    hash['starships'].each { |starship| $starships.append(new(starship))}
+    hash['starships'].each { |starship| new(starship)}
   end
 
   def self.find(id)
