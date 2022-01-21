@@ -138,31 +138,3 @@ Starship.loadCollection
 Person.loadCollection
 p = Person.find(1)
 p.starships.each {|id, starship| puts starship.name}
-
-=begin
-
--------
-people = Array.new
-vehicles = Array.new
-starship = Array.new
-data_hash['people'].each { |person| people.append(Person.new(person))}
-data_hash['vehicles'].each { |vehicle| vehicles.append(Vehicle.new(vehicle))}
-data_hash['starships'].each { |starship| starships.append(Starship.new(starship))}
--------
-first = Person.new(data_hash['people'][0]['id'],data_hash['people'][0]['name'],data_hash['people'][0]['height'],data_hash['people'][0]['mass'],data_hash['people'][0]['hair_color'],data_hash['people'][0]['skin_color'],data_hash['people'][0]['eye_color'],data_hash['people'][0]['birth_year'],data_hash['people'][0]['gender'],data_hash['people'][0]['vehicles'],data_hash['people'][0]['starships'])
-
-  def s(id, name, height, mass, hair_color, skin_color, eye_color, birth_year, gender, vehicles, starships)
-    @id = id
-    @name = name
-    @height = height
-    @mass = mass
-    @hair_color = hair_color
-    @skin_color = skin_color
-    @eye_color = eye_color
-    @birth_year = birth_year
-    @gender = gender
-    @vehicles = vehicles
-    @starships = starships
-  end
-
-=end
