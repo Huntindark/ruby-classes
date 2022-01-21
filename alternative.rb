@@ -88,9 +88,6 @@ class Vehicle < JsonReader
     @consumables = params.fetch('consumables')
     @vehicle_class = params.fetch('vehicle_class')
   end
-  def self.loadCollection
-    super()
-  end
 
   def self.iterateHash(hash)
     hash['vehicles'].each { |vehicle| $vehicles.append(new(vehicle))}
@@ -124,9 +121,6 @@ class Starship < JsonReader
     @vehicle_class = params.fetch('hyperdrive_rating')
     @MLGT = params.fetch('MGLT')
     @starship_class = params.fetch('starship_class')
-  end
-  def self.loadCollection
-    super()
   end
 
   def self.iterateHash(hash)
