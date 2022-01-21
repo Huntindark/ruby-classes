@@ -67,6 +67,7 @@ class Person < JsonReader
   end
 end
 
+#Deberia hacer una clase padre para vehiculo y starship ya que comparten tantas variables... capas en otro momento
 class Vehicle < JsonReader
   attr_accessor :name, :cost_in_credits, :length, :max_atmosphering_speed, :crew, :passengers, :cargo_capacity, :consumables, :vehicle_class
   attr_reader :id, :model, :manufacturer
